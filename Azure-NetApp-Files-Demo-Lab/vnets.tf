@@ -229,3 +229,119 @@ resource "azurerm_subnet" "anf_subnet_weu" {
     }
   }
 }
+
+# Create VNet peerings UKS & UKW
+resource "azurerm_virtual_network_peering" "uks2ukw" {
+  name                         = "peer-uks-2-ukw"
+  resource_group_name          = azurerm_resource_group.rg_vnet_uks.name
+  virtual_network_name         = azurerm_virtual_network.vnet_uks.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_ukw.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+resource "azurerm_virtual_network_peering" "ukw2uks" {
+  name                         = "peer-ukw-2-uks"
+  resource_group_name          = azurerm_resource_group.rg_vnet_ukw.name
+  virtual_network_name         = azurerm_virtual_network.vnet_ukw.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_uks.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+# Create VNet peerings UKS & NEU
+resource "azurerm_virtual_network_peering" "uks2neu" {
+  name                         = "peer-uks-2-neu"
+  resource_group_name          = azurerm_resource_group.rg_vnet_uks.name
+  virtual_network_name         = azurerm_virtual_network.vnet_uks.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_neu.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+resource "azurerm_virtual_network_peering" "neu2uks" {
+  name                         = "peer-neu-2-uks"
+  resource_group_name          = azurerm_resource_group.rg_vnet_neu.name
+  virtual_network_name         = azurerm_virtual_network.vnet_neu.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_uks.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+# Create VNet peerings UKS & WEU
+resource "azurerm_virtual_network_peering" "uks2weu" {
+  name                         = "peer-uks-2-weu"
+  resource_group_name          = azurerm_resource_group.rg_vnet_uks.name
+  virtual_network_name         = azurerm_virtual_network.vnet_uks.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_weu.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+resource "azurerm_virtual_network_peering" "weu2uks" {
+  name                         = "peer-weu-2-uks"
+  resource_group_name          = azurerm_resource_group.rg_vnet_weu.name
+  virtual_network_name         = azurerm_virtual_network.vnet_weu.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_uks.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+# Create VNet peerings UKW & WEU
+resource "azurerm_virtual_network_peering" "ukw2weu" {
+  name                         = "peer-ukw-2-weu"
+  resource_group_name          = azurerm_resource_group.rg_vnet_ukw.name
+  virtual_network_name         = azurerm_virtual_network.vnet_ukw.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_weu.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+resource "azurerm_virtual_network_peering" "weu2ukw" {
+  name                         = "peer-weu-2-ukw"
+  resource_group_name          = azurerm_resource_group.rg_vnet_weu.name
+  virtual_network_name         = azurerm_virtual_network.vnet_weu.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_ukw.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+# Create VNet peerings UKW & NEU
+resource "azurerm_virtual_network_peering" "ukw2neu" {
+  name                         = "peer-ukw-2-neu"
+  resource_group_name          = azurerm_resource_group.rg_vnet_ukw.name
+  virtual_network_name         = azurerm_virtual_network.vnet_ukw.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_neu.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+resource "azurerm_virtual_network_peering" "neu2ukw" {
+  name                         = "peer-neu-2-ukw"
+  resource_group_name          = azurerm_resource_group.rg_vnet_neu.name
+  virtual_network_name         = azurerm_virtual_network.vnet_neu.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_ukw.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+# Create VNet peerings NEU & WEU
+resource "azurerm_virtual_network_peering" "neu2weu" {
+  name                         = "peer-neu-2-weu"
+  resource_group_name          = azurerm_resource_group.rg_vnet_neu.name
+  virtual_network_name         = azurerm_virtual_network.vnet_neu.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_weu.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+resource "azurerm_virtual_network_peering" "weu2neu" {
+  name                         = "peer-weu-2-neu"
+  resource_group_name          = azurerm_resource_group.rg_vnet_weu.name
+  virtual_network_name         = azurerm_virtual_network.vnet_weu.name
+  remote_virtual_network_id    = azurerm_virtual_network.vnet_neu.id
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+}
+
+
