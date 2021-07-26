@@ -21,15 +21,15 @@ resource "azurerm_virtual_network" "vnet_uks" {
   name                = "${var.prefix}-${var.vnet_name_uks}"
   location            = azurerm_resource_group.rg_vnet_uks.location
   address_space       = [var.vnet_address_space_uks]
-  dns_servers         = [var.dns_server_uks, 
-                          var.dns_server_ukw, 
-                          var.dns_server_neu, 
-                          var.dns_server_weu,
-                          var.dns_server_azure]
-  tags                = {
-    Environment       = var.tag_environment
-    CreatedBy         = var.tag_createdby
-    CreatedWith       = var.tag_createdwith
+  dns_servers = [var.dns_server_uks,
+    var.dns_server_ukw,
+    var.dns_server_neu,
+    var.dns_server_weu,
+  var.dns_server_azure]
+  tags = {
+    Environment = var.tag_environment
+    CreatedBy   = var.tag_createdby
+    CreatedWith = var.tag_createdwith
   }
 }
 
@@ -79,15 +79,15 @@ resource "azurerm_virtual_network" "vnet_ukw" {
   name                = "${var.prefix}-${var.vnet_name_ukw}"
   location            = azurerm_resource_group.rg_vnet_ukw.location
   address_space       = [var.vnet_address_space_ukw]
-  dns_servers         = [var.dns_server_uks, 
-                          var.dns_server_ukw, 
-                          var.dns_server_neu, 
-                          var.dns_server_weu,
-                          var.dns_server_azure]
-  tags                = {
-    Environment       = var.tag_environment
-    CreatedBy         = var.tag_createdby
-    CreatedWith       = var.tag_createdwith
+  dns_servers = [var.dns_server_uks,
+    var.dns_server_ukw,
+    var.dns_server_neu,
+    var.dns_server_weu,
+  var.dns_server_azure]
+  tags = {
+    Environment = var.tag_environment
+    CreatedBy   = var.tag_createdby
+    CreatedWith = var.tag_createdwith
   }
 }
 
@@ -137,15 +137,15 @@ resource "azurerm_virtual_network" "vnet_neu" {
   name                = "${var.prefix}-${var.vnet_name_neu}"
   location            = azurerm_resource_group.rg_vnet_neu.location
   address_space       = [var.vnet_address_space_neu]
-  dns_servers         = [var.dns_server_uks, 
-                          var.dns_server_ukw, 
-                          var.dns_server_neu, 
-                          var.dns_server_weu,
-                          var.dns_server_azure]
-  tags                = {
-    Environment       = var.tag_environment
-    CreatedBy         = var.tag_createdby
-    CreatedWith       = var.tag_createdwith
+  dns_servers = [var.dns_server_uks,
+    var.dns_server_ukw,
+    var.dns_server_neu,
+    var.dns_server_weu,
+  var.dns_server_azure]
+  tags = {
+    Environment = var.tag_environment
+    CreatedBy   = var.tag_createdby
+    CreatedWith = var.tag_createdwith
   }
 }
 
@@ -195,15 +195,15 @@ resource "azurerm_virtual_network" "vnet_weu" {
   name                = "${var.prefix}-${var.vnet_name_weu}"
   location            = azurerm_resource_group.rg_vnet_weu.location
   address_space       = [var.vnet_address_space_weu]
-  dns_servers         = [var.dns_server_uks, 
-                          var.dns_server_ukw, 
-                          var.dns_server_neu, 
-                          var.dns_server_weu,
-                          var.dns_server_azure]
-  tags                = {
-    Environment       = var.tag_environment
-    CreatedBy         = var.tag_createdby
-    CreatedWith       = var.tag_createdwith
+  dns_servers = [var.dns_server_uks,
+    var.dns_server_ukw,
+    var.dns_server_neu,
+    var.dns_server_weu,
+  var.dns_server_azure]
+  tags = {
+    Environment = var.tag_environment
+    CreatedBy   = var.tag_createdby
+    CreatedWith = var.tag_createdwith
   }
 }
 
