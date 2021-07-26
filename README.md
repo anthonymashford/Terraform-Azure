@@ -5,3 +5,4 @@ In this repository you will find examples of Terraform code that I have used to 
 ## Projects in this repo
 
 - Azure NetApp Files Demo Lab
+- Deploy Azure VNets in four regions. UK South, UK West, North Europe & West Europe
