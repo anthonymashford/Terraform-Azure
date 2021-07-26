@@ -4,6 +4,6 @@ In this repository you will find examples of Terraform code that I have used to 
 
 ## Projects in this repo
 
-1. Azure Deploy VNets - This creates VNets, Subnet & DNS configuration in four regions. UK South, UK West, North Europe & West Europe
+1. Azure Deploy VNets - This creates VNets, Subnet & DNS configuration in four regions. UK South, UK West, North Europe & West Europe.
 
 ## Azure NetApp Files Demo Lab
