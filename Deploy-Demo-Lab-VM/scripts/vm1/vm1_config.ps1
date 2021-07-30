@@ -14,8 +14,8 @@ choco install microsoftazurestorageexplorer -y
 choco install vscode -y
 # Download Scripts - These scripts are use post VM build to setup and configure the domain
 New-Item -Path "c:\" -Name "DemoLab" -ItemType "directory" -Force
-# Invoke-WebRequest -Uri "https://raw.githubusercontent.com/jakewalsh90/Terraform-Azure/main/Dual-Region-Azure-BaseLab/PowerShell/DC1/baselab_DomainSetup.ps1" -OutFile "C:\DemoLab\baselab_DomainSetup.ps1"
-# Invoke-WebRequest -Uri "https://raw.githubusercontent.com/jakewalsh90/Terraform-Azure/main/Dual-Region-Azure-BaseLab/PowerShell/DC1/baselab_LabStructure.ps1" -OutFile "C:\DemoLab\baselab_LabStructure.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/anthonymashford/Terraform-Azure/main/Deploy-Demo-Lab-VM/scripts/vm1/domain_config.ps1" -OutFile "C:\DemoLab\domain_config.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/anthonymashford/Terraform-Azure/main/Deploy-Demo-Lab-VM/scripts/vm1/lab_config.ps1" -OutFile "C:\DemoLab\lab_config.ps1"
 # Setup and partition sysvol disk
 Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel 'Sysvol' -Confirm:$false 
 # Allow Ping
