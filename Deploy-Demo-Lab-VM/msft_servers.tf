@@ -229,7 +229,7 @@ resource "azurerm_virtual_machine_extension" "vm1_ext" {
   settings = <<SETTINGS
     {
         "fileUris": [
-          "https://raw.githubusercontent.com/anthonymashford/Terraform-Azure/aa26da7de5341cafb4363400a7d6e12767edcd8f/Deploy-Demo-Lab-VM/scripts/vm1/vm1_config.ps1"
+          "https://raw.githubusercontent.com/anthonymashford/Terraform-Azure/main/Deploy-Demo-Lab-VM/scripts/vm1/vm1_config.ps1"
         ]
     }
   SETTINGS
