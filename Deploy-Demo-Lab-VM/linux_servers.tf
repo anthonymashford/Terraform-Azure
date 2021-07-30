@@ -74,6 +74,12 @@ resource "azurerm_network_interface" "nic_vm4" {
   }
 }
 
+# Create random string for disk name
+resource "random_string" "rs_vm3_disk" {
+  length  = 16
+  special = false
+}
+
 # Create additional disk for VM3
 resource "azurerm_managed_disk" "mdisk_vm3" {
   name                 = "mdisk-${var.vm3_name}_${random_string.rs_vm3_disk.result}"
