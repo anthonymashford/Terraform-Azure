@@ -122,12 +122,6 @@ resource "azurerm_managed_disk" "mdisk_vm2" {
   }
 }
 
-# Create random string for disk name
-resource "random_string" "rs_vm3_disk" {
-  length  = 16
-  special = false
-}
-
 # Create VM 1
 resource "azurerm_windows_virtual_machine" "vm1" {
   name                = "vm-${var.vm1_name}"
