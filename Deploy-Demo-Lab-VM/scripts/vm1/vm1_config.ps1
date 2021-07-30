@@ -2,6 +2,7 @@
 Set-ExecutionPolicy Bypass -Scope Process -Force 
 # Install Chocolatey - Windows package manager used to instlal applications
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+choco install crystaldiskmark -y
 choco install googlechrome -y
 choco install putty -y
 choco install notepadplusplus -y
