@@ -1,7 +1,7 @@
 # Set Execution Policy - This will allow scrit to run on VM
 Set-ExecutionPolicy Bypass -Scope Process -Force 
 # Install Chocolatey - Windows package manager used to instlal applications
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 choco install crystaldiskmark -y
 choco install googlechrome -y
 choco install putty -y
@@ -17,7 +17,7 @@ New-Item -Path "c:\" -Name "DemoLab" -ItemType "directory" -Force
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/anthonymashford/Terraform-Azure/main/Deploy-Demo-Lab-VM/scripts/vm1/domain_config.ps1" -OutFile "C:\DemoLab\domain_config.ps1"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/anthonymashford/Terraform-Azure/main/Deploy-Demo-Lab-VM/scripts/vm1/lab_config.ps1" -OutFile "C:\DemoLab\lab_config.ps1"
 # Setup and partition sysvol disk
-Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel 'Sysvol' -Confirm:$false 
+Get-Disk | Where-Object partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel 'Sysvol' -Confirm:$false 
 # Allow Ping
 Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv6-In)" -enabled True
