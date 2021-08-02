@@ -12,3 +12,5 @@ choco install bginfo -y
 choco install azure-cli -y
 choco install microsoftazurestorageexplorer -y
 choco install vscode -y
+# Setup and partition sysvol disk
+Get-Disk | Where-Object partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle MBR -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel 'Sysvol' -Confirm:$false 

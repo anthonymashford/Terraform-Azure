@@ -228,3 +228,26 @@ resource "azurerm_virtual_machine_extension" "vm1_ext" {
     }
   SETTINGS
 }
+
+resource "azurerm_virtual_machine_extension" "vm2_ext" {
+  name                 = "vm2-setup"
+  virtual_machine_id   = azurerm_windows_virtual_machine.vm2.id
+  depends_on           = [azurerm_virtual_machine_data_disk_attachment.mdisk_vm2]
+  publisher            = "Microsoft.Compute"
+  type                 = "CustomScriptExtension"
+  type_handler_version = "1.9"
+
+  protected_settings = <<PROTECTED_SETTINGS
+    {
+      "commandToExecute": "powershell.exe -Command \"./vm2_config.ps1; exit 0;\""
+    }
+  PROTECTED_SETTINGS
+
+  settings = <<SETTINGS
+    {
+        "fileUris": [
+          "https://raw.githubusercontent.com/anthonymashford/Terraform-Azure/main/Deploy-Demo-Lab-VM/scripts/vm2/vm2_config.ps1"
+        ]
+    }
+  SETTINGS
+}
