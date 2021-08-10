@@ -85,7 +85,7 @@ resource "azurerm_virtual_machine_extension" "apps" {
 
   protected_settings = <<PROTECTED_SETTINGS
     {
-      "commandToExecute": "powershell.exe -Command \"./vm1_config.ps1; exit 0;\""
+      "commandToExecute": "powershell.exe -Command \"./install_apps.ps1; exit 0;\""
     }
   PROTECTED_SETTINGS
 
