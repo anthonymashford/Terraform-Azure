@@ -67,4 +67,3 @@ vol_path_smb           = "smb-vol"
 service_level_std      = "Standard"
 protocol_nfs           = "NFSv3"
 protocol_smb           = "CIFS"
-
