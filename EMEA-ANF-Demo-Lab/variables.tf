@@ -265,7 +265,7 @@ variable "vm4_version" {
 }
 
 variable "domain" {
-  description = "AD Doamin Name"
+  description = "AD Domain Name"
   default     = ""
 }
 
@@ -281,5 +281,30 @@ variable "cap_pool_tier" {
 
 variable "cap_pool_size" {
   description = "Capacity Pool Size"
+  default     = ""
+}
+
+variable "vol_path_nfs" {
+  description = "NFS Volume Path"
+  default     = ""
+}
+
+variable "vol_path_smb" {
+  description = "NFS Volume Path"
+  default     = ""
+}
+
+variable "service_level_std" {
+  description = "ANF Service Level"
+  default     = ""
+}
+
+variable "protocol_nfs" {
+  description = "Volume Protocol"
+  default     = ""
+}
+
+variable "protocol_smb" {
+  description = "Volume Protocol"
   default     = ""
 }
