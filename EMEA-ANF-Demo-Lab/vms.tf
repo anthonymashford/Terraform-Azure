@@ -92,7 +92,7 @@ resource "azurerm_virtual_machine_extension" "apps" {
   settings = <<SETTINGS
     {
         "fileUris": [
-          "https://raw.githubusercontent.com/anthonymashford/MyCode-NetApp/main/EMEA-ANF-Demo-Lab/PowerShell/install_apps.ps1?token=AEJSLGKQL7CBYRZZTWXJC6TBCJB5U"
+          "https://raw.githubusercontent.com/anthonymashford/Terraform-Azure/main/EMEA-ANF-Demo-Lab/PowerShell/install_apps.ps1"
         ]
     }
   SETTINGS
