@@ -195,4 +195,3 @@ resource "azurerm_netapp_volume" "anf_smb_vol_2" {
   }
 
 }
-
