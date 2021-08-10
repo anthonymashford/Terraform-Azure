@@ -76,7 +76,9 @@ resource "azurerm_windows_virtual_machine" "vm1" {
   }
 }
 
-resource "azurerm_virtual_machine_extension" "apps" {
+# Install apps for test & demo
+
+resource "azurerm_virtual_machine_extension" "apps1" {
   name                 = "install-apps"
   virtual_machine_id   = azurerm_windows_virtual_machine.vm1.id
   publisher            = "Microsoft.Compute"
@@ -102,6 +104,7 @@ resource "azurerm_virtual_machine_extension" "apps" {
 resource "azurerm_virtual_machine_extension" "domjoin1" {
   name                 = "domjoin"
   virtual_machine_id   = azurerm_windows_virtual_machine.vm1.id
+  depends_on           = [azurerm_virtual_machine_extension.apps1]
   publisher            = "Microsoft.Compute"
   type                 = "JsonADDomainExtension"
   type_handler_version = "1.3"
@@ -198,6 +201,31 @@ resource "azurerm_windows_virtual_machine" "vm2" {
     CreatedWith = var.tag_createdwith
     Project     = var.tag_project
   }
+}
+
+# Install apps for test & demo
+
+resource "azurerm_virtual_machine_extension" "apps2" {
+  name                 = "install-apps"
+  virtual_machine_id   = azurerm_windows_virtual_machine.vm2.id
+  depends_on           = [azurerm_virtual_machine_extension.apps2]
+  publisher            = "Microsoft.Compute"
+  type                 = "CustomScriptExtension"
+  type_handler_version = "1.9"
+
+  protected_settings = <<PROTECTED_SETTINGS
+    {
+      "commandToExecute": "powershell.exe -Command \"./install_apps.ps1; exit 0;\""
+    }
+  PROTECTED_SETTINGS
+
+  settings = <<SETTINGS
+    {
+        "fileUris": [
+          "https://raw.githubusercontent.com/anthonymashford/Terraform-Azure/main/EMEA-ANF-Demo-Lab/PowerShell/install_apps.ps1"
+        ]
+    }
+  SETTINGS
 }
 
 # Join Demo VM 2 to Domain
