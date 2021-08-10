@@ -208,7 +208,6 @@ resource "azurerm_windows_virtual_machine" "vm2" {
 resource "azurerm_virtual_machine_extension" "apps2" {
   name                 = "install-apps"
   virtual_machine_id   = azurerm_windows_virtual_machine.vm2.id
-  depends_on           = [azurerm_virtual_machine_extension.apps2]
   publisher            = "Microsoft.Compute"
   type                 = "CustomScriptExtension"
   type_handler_version = "1.9"
@@ -232,6 +231,7 @@ resource "azurerm_virtual_machine_extension" "apps2" {
 resource "azurerm_virtual_machine_extension" "domjoin2" {
   name                 = "domjoin"
   virtual_machine_id   = azurerm_windows_virtual_machine.vm2.id
+  depends_on           = [azurerm_virtual_machine_extension.apps2]
   publisher            = "Microsoft.Compute"
   type                 = "JsonADDomainExtension"
   type_handler_version = "1.3"
