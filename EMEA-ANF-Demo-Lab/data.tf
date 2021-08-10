@@ -58,3 +58,14 @@ data "azurerm_virtual_network" "hub_ukw" {
   name                = "uk-west-hub"
   resource_group_name = "emea-core-west-uk"
 }
+
+# Get North Europe ANF
+data "azurerm_netapp_account" "anf_neu" {
+  name                = "core-north-europe"
+  resource_group_name = "emea-core-north-europe-anf"
+}
+# Get North West ANF
+data "azurerm_netapp_account" "anf_weu" {
+  name                = "core-west-europe"
+  resource_group_name = "emea-core-west-europe-anf"
+}

@@ -263,3 +263,23 @@ variable "vm4_version" {
   description = "VM Version"
   default     = ""
 }
+
+variable "domain" {
+  description = "AD Doamin Name"
+  default     = ""
+}
+
+variable "ou" {
+  description = "AD OU"
+  default     = ""
+}
+
+variable "cap_pool_tier" {
+  description = "Capacity Tier"
+  default     = ""
+}
+
+variable "cap_pool_size" {
+  description = "Capacity Pool Size"
+  default     = ""
+}
