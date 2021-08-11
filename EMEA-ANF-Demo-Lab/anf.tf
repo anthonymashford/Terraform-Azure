@@ -97,6 +97,14 @@ resource "azurerm_netapp_volume" "anf_nfs_vol_1" {
   protocols           = [var.protocol_nfs]
   storage_quota_in_gb = 1024
 
+  export_policy_rule {
+  rule_index = 1
+  allowed_clients = [var.address_vnet_1_snet_1]
+  protocols_enabled = ["NFSv3"]
+  unix_read_write = true
+  root_access_enabled = true
+  }
+
   tags = {
     Environment = var.tag_environment
     CreatedBy   = var.tag_createdby
@@ -121,6 +129,14 @@ resource "azurerm_netapp_volume" "anf_nfs_vol_2" {
   subnet_id           = azurerm_subnet.vnet_2_snet_2.id
   protocols           = [var.protocol_nfs]
   storage_quota_in_gb = 1024
+
+  export_policy_rule {
+  rule_index = 1
+  allowed_clients = [var.address_vnet_2_snet_1]
+  protocols_enabled = ["NFSv3"]
+  unix_read_write = true
+  root_access_enabled = true
+  }
 
   tags = {
     Environment = var.tag_environment
@@ -189,7 +205,7 @@ resource "azurerm_netapp_volume" "anf_smb_vol_2" {
 
   data_protection_replication {
     endpoint_type             = "dst"
-    remote_volume_location    = azurerm_resource_group.rg_2.location
+    remote_volume_location    = azurerm_resource_group.rg_1.location
     remote_volume_resource_id = azurerm_netapp_volume.anf_smb_vol_1.id
     replication_frequency     = "10minutes"
   }
