@@ -8,8 +8,8 @@ choco install googlechrome -y
 choco install putty -y
 choco install notepadplusplus -y
 choco install winscp -y
-choco install sysinternals -y
-choco install bginfo -y
-choco install azure-cli -y
-choco install microsoftazurestorageexplorer -y
-choco install vscode -y
+# choco install sysinternals -y
+# choco install bginfo -y
+# choco install azure-cli -y
+# choco install microsoftazurestorageexplorer -y
+# choco install vscode -y
