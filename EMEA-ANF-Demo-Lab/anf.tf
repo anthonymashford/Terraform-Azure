@@ -4,6 +4,10 @@ resource "azurerm_netapp_account" "anf_acc_1" {
   resource_group_name = azurerm_resource_group.rg_1.name
   location            = var.region_1
 
+# Acitve Directory configuration. 
+# This section has been commented out as an ANF account already exists in the demo subscription and reg.
+# Uncomment this section if you need to add Active Directory configuration and amend the .tfvars file.
+/*
   active_directory {
     username            = data.azurerm_key_vault_secret.join.name
     password            = data.azurerm_key_vault_secret.join.value
@@ -12,7 +16,7 @@ resource "azurerm_netapp_account" "anf_acc_1" {
     domain              = var.domain
     organizational_unit = var.ou
   }
-
+*/
   tags = {
     Environment = var.tag_environment
     CreatedBy   = var.tag_createdby
@@ -28,6 +32,10 @@ resource "azurerm_netapp_account" "anf_acc_2" {
   resource_group_name = azurerm_resource_group.rg_2.name
   location            = var.region_2
 
+# Acitve Directory configuration. 
+# This section has been commented out as an ANF account already exists in the demo subscription region.
+# Uncomment this section if you need to add Active Directory configuration and amend the .tfvars file.
+/*
   active_directory {
     username            = data.azurerm_key_vault_secret.join.name
     password            = data.azurerm_key_vault_secret.join.value
@@ -36,7 +44,7 @@ resource "azurerm_netapp_account" "anf_acc_2" {
     domain              = var.domain
     organizational_unit = var.ou
   }
-
+*/
   tags = {
     Environment = var.tag_environment
     CreatedBy   = var.tag_createdby

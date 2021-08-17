@@ -64,8 +64,21 @@ data "azurerm_netapp_account" "anf_neu" {
   name                = "core-north-europe"
   resource_group_name = "emea-core-north-europe-anf"
 }
-# Get North West ANF
+
+# Get West Europe ANF
 data "azurerm_netapp_account" "anf_weu" {
   name                = "core-west-europe"
   resource_group_name = "emea-core-west-europe-anf"
+}
+
+# Get UK South ANF
+data "azurerm_netapp_account" "anf_uks" {
+  name                = "core-south-uk"
+  resource_group_name = "emea-core-south-uk-anf"
+}
+
+# Get UK West ANF
+data "azurerm_netapp_account" "anf_ukw" {
+  name                = "core-west-uk"
+  resource_group_name = "emea-core-west-uk-anf"
 }
