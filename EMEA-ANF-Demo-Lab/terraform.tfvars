@@ -1,12 +1,18 @@
+######################################################################################
+#                    Modify these parameters to tailor your demo                     #
+######################################################################################
 use                    = "DEMO"
 prefix                 = "ACME"
 geo                    = "emea"
-region_1               = "uksouth"
-region_2               = "ukwest"
+region_1               = "northeurope"
+region_2               = "westeurope"
 tag_environment        = "Demo"
 tag_createdby          = "Anthony"
 tag_createdwith        = "Terraform"
 tag_project            = "emea-csa-anf"
+######################################################################################
+#                           Modify these parameters as requried                      #
+######################################################################################
 vnet_1                 = "vnet-1"
 vnet_2                 = "vnet-2"
 address_space_region_1 = "172.11.0.0/16"
