@@ -1,5 +1,6 @@
 ######################################################################################
-#                    Modify these parameters to tailor your demo                     #
+#                              (C) Mash'o'soft 2021                                  #
+#        Modify these parameters to meet yours or you clients requirements           #
 ######################################################################################
 use                    = "DEMO"
 prefix                 = "ACME"
@@ -11,7 +12,7 @@ tag_createdby          = "Anthony"
 tag_createdwith        = "Terraform"
 tag_project            = "emea-csa-anf"
 ######################################################################################
-#                           Modify these parameters as requried                      #
+#                           Modify these parameters as required                      #
 ######################################################################################
 vnet_1                 = "vnet-1"
 vnet_2                 = "vnet-2"
