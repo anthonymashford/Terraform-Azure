@@ -1,6 +1,7 @@
 ######################################################################################
 #                              (C) Mash'o'soft 2021                                  #
-#        Modify these parameters to meet yours or you clients requirements           #
+#             This file is used to define to variables for your demo lab             #
+#                  Modify these parameters to meet your requirements                 #
 ######################################################################################
 use                    = "DEMO"
 prefix                 = "ACME"
