@@ -13,7 +13,7 @@ tag_createdby          = "Anthony"
 tag_createdwith        = "Terraform"
 tag_project            = "emea-csa-anf"
 ######################################################################################
-#                           Modify these parameters as required                      #
+#                     Network - Modify these parameters as required                  #
 ######################################################################################
 vnet_1                 = "vnet-1"
 vnet_2                 = "vnet-2"
@@ -30,6 +30,9 @@ address_vnet_1_snet_1  = "172.11.1.0/24"
 address_vnet_1_snet_2  = "172.11.2.0/24"
 address_vnet_2_snet_1  = "172.12.1.0/24"
 address_vnet_2_snet_2  = "172.12.2.0/24"
+######################################################################################
+#                 Virtual Machines - Modify these parameters as required             #
+######################################################################################
 labadmin               = "labadmin"
 vm1_name               = "msft01"
 vm2_name               = "msft02"
@@ -68,6 +71,9 @@ vm4_sku                = "16.04-LTS"
 vm4_version            = "latest"
 domain                 = "anf.test"
 ou                     = "OU=anf-demo"
+######################################################################################
+#               Azure NetApp Files - Modify these parameters as required             #
+######################################################################################
 cap_pool_tier          = "Standard"
 cap_pool_size          = "4"
 vol_path_nfs           = "nfs-vol"
