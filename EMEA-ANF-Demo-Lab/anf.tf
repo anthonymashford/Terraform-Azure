@@ -4,10 +4,10 @@ resource "azurerm_netapp_account" "anf_acc_1" {
   resource_group_name = azurerm_resource_group.rg_1.name
   location            = var.region_1
 
-# Acitve Directory configuration. 
-# This section has been commented out as an ANF account already exists in the demo subscription and reg.
-# Uncomment this section if you need to add Active Directory configuration and amend the .tfvars file.
-/*
+  # Acitve Directory configuration. 
+  # This section has been commented out as an ANF account already exists in the demo subscription and reg.
+  # Uncomment this section if you need to add Active Directory configuration and amend the .tfvars file.
+  /*
   active_directory {
     username            = data.azurerm_key_vault_secret.join.name
     password            = data.azurerm_key_vault_secret.join.value
@@ -32,10 +32,10 @@ resource "azurerm_netapp_account" "anf_acc_2" {
   resource_group_name = azurerm_resource_group.rg_2.name
   location            = var.region_2
 
-# Acitve Directory configuration. 
-# This section has been commented out as an ANF account already exists in the demo subscription region.
-# Uncomment this section if you need to add Active Directory configuration and amend the .tfvars file.
-/*
+  # Acitve Directory configuration. 
+  # This section has been commented out as an ANF account already exists in the demo subscription region.
+  # Uncomment this section if you need to add Active Directory configuration and amend the .tfvars file.
+  /*
   active_directory {
     username            = data.azurerm_key_vault_secret.join.name
     password            = data.azurerm_key_vault_secret.join.value
@@ -106,11 +106,11 @@ resource "azurerm_netapp_volume" "anf_nfs_vol_1" {
   storage_quota_in_gb = 1024
 
   export_policy_rule {
-  rule_index = 1
-  allowed_clients = [var.address_vnet_1_snet_1]
-  protocols_enabled = ["NFSv3"]
-  unix_read_write = true
-  root_access_enabled = true
+    rule_index          = 1
+    allowed_clients     = [var.address_vnet_1_snet_1]
+    protocols_enabled   = ["NFSv3"]
+    unix_read_write     = true
+    root_access_enabled = true
   }
 
   tags = {
@@ -139,11 +139,11 @@ resource "azurerm_netapp_volume" "anf_nfs_vol_2" {
   storage_quota_in_gb = 1024
 
   export_policy_rule {
-  rule_index = 1
-  allowed_clients = [var.address_vnet_2_snet_1]
-  protocols_enabled = ["NFSv3"]
-  unix_read_write = true
-  root_access_enabled = true
+    rule_index          = 1
+    allowed_clients     = [var.address_vnet_2_snet_1]
+    protocols_enabled   = ["NFSv3"]
+    unix_read_write     = true
+    root_access_enabled = true
   }
 
   tags = {
@@ -153,7 +153,7 @@ resource "azurerm_netapp_volume" "anf_nfs_vol_2" {
     Project     = var.tag_project
   }
 
-    data_protection_replication {
+  data_protection_replication {
     endpoint_type             = "dst"
     remote_volume_location    = azurerm_resource_group.rg_1.location
     remote_volume_resource_id = azurerm_netapp_volume.anf_nfs_vol_1.id
