@@ -5,8 +5,8 @@ resource "azurerm_netapp_account" "anf_acc_1" {
   location            = var.region_1
 
   # Acitve Directory configuration. 
-  # This section has been commented out as an ANF account already exists in the demo subscription and reg.
-  # Uncomment this section if you need to add Active Directory configuration and amend the .tfvars file.
+  # This section has been commented out as an ANF account already exists in the demo subscription and region(s).
+  # Uncomment this section if you need to add Active Directory configuration and amend the .tfvars file to suit.
   /*
   active_directory {
     username            = data.azurerm_key_vault_secret.join.name
