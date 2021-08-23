@@ -101,6 +101,7 @@ resource "azurerm_virtual_machine_extension" "apps1" {
 }
 
 # Join Demo VM 1 to Domain
+# Please note that the domain settings are bespoke to your individual environment. Please adjust them to suit.
 resource "azurerm_virtual_machine_extension" "domjoin1" {
   name                 = "domjoin"
   virtual_machine_id   = azurerm_windows_virtual_machine.vm1.id
@@ -228,6 +229,7 @@ resource "azurerm_virtual_machine_extension" "apps2" {
 }
 
 # Join Demo VM 2 to Domain
+# Please note that the domain settings are bespoke to your individual environment. Please adjust them to suit.
 resource "azurerm_virtual_machine_extension" "domjoin2" {
   name                 = "domjoin"
   virtual_machine_id   = azurerm_windows_virtual_machine.vm2.id
@@ -332,6 +334,7 @@ resource "azurerm_linux_virtual_machine" "vm3" {
 # Install NFS & Samba services
 
 resource "azurerm_virtual_machine_extension" "apps3" {
+  depends_on           = [azurerm_linux_virtual_machine.vm3]
   name                 = "install-linux-services"
   virtual_machine_id   = azurerm_linux_virtual_machine.vm3.id
   publisher            = "Microsoft.Azure.Extensions"
@@ -426,6 +429,7 @@ resource "azurerm_linux_virtual_machine" "vm4" {
 # Install NFS & Samba services
 
 resource "azurerm_virtual_machine_extension" "apps4" {
+  depends_on           = [azurerm_linux_virtual_machine.vm4]
   name                 = "install-linux-services"
   virtual_machine_id   = azurerm_linux_virtual_machine.vm4.id
   publisher            = "Microsoft.Azure.Extensions"
