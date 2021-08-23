@@ -1,6 +1,6 @@
 # Create Azure NetApp Files Account 1
 resource "azurerm_netapp_account" "anf_acc_1" {
-  name                = "${var.prefix}-${var.geo}-${var.region_1}"
+  name                = "anf-${var.use}-${var.prefix}-${var.geo}-${var.region_1}"
   resource_group_name = azurerm_resource_group.rg_1.name
   location            = var.region_1
 
@@ -28,7 +28,7 @@ resource "azurerm_netapp_account" "anf_acc_1" {
 
 # Create Azure NetApp Files Account 2
 resource "azurerm_netapp_account" "anf_acc_2" {
-  name                = "${var.prefix}-${var.geo}-${var.region_2}"
+  name                = "anf-${var.use}-${var.prefix}-${var.geo}-${var.region_2}"
   resource_group_name = azurerm_resource_group.rg_2.name
   location            = var.region_2
 
@@ -56,7 +56,7 @@ resource "azurerm_netapp_account" "anf_acc_2" {
 
 # Create Azure NetApp Files Capacity Pool 1
 resource "azurerm_netapp_pool" "anf_cap_1" {
-  name                = "cap-${var.prefix}-${var.geo}-${var.region_1}"
+  name                = "cap-${var.use}-${var.prefix}-${var.geo}-${var.region_1}"
   account_name        = azurerm_netapp_account.anf_acc_1.name
   location            = var.region_1
   resource_group_name = azurerm_resource_group.rg_1.name
@@ -73,7 +73,7 @@ resource "azurerm_netapp_pool" "anf_cap_1" {
 
 # Create Azure NetApp Files Capacity Pool 2
 resource "azurerm_netapp_pool" "anf_cap_2" {
-  name                = "cap-${var.prefix}-${var.geo}-${var.region_2}"
+  name                = "cap-${var.use}-${var.prefix}-${var.geo}-${var.region_2}"
   account_name        = azurerm_netapp_account.anf_acc_2.name
   location            = var.region_2
   resource_group_name = azurerm_resource_group.rg_2.name
@@ -94,7 +94,7 @@ resource "azurerm_netapp_volume" "anf_nfs_vol_1" {
     prevent_destroy = false
   }
 
-  name                = "vol-nfs-${var.prefix}-${var.geo}-${var.region_1}"
+  name                = "vol-nfs-${var.use}-${var.prefix}-${var.geo}-${var.region_1}"
   location            = var.region_1
   resource_group_name = azurerm_resource_group.rg_1.name
   account_name        = azurerm_netapp_account.anf_acc_1.name
@@ -127,7 +127,7 @@ resource "azurerm_netapp_volume" "anf_nfs_vol_2" {
     prevent_destroy = false
   }
 
-  name                = "vol-nfs-${var.prefix}-${var.geo}-${var.region_2}"
+  name                = "vol-nfs-${var.use}-${var.prefix}-${var.geo}-${var.region_2}"
   location            = var.region_2
   resource_group_name = azurerm_resource_group.rg_2.name
   account_name        = azurerm_netapp_account.anf_acc_2.name
@@ -168,7 +168,7 @@ resource "azurerm_netapp_volume" "anf_smb_vol_1" {
     prevent_destroy = false
   }
 
-  name                = "vol-smb-${var.prefix}-${var.geo}-${var.region_1}"
+  name                = "vol-smb-${var.use}-${var.prefix}-${var.geo}-${var.region_1}"
   location            = var.region_1
   resource_group_name = azurerm_resource_group.rg_1.name
   account_name        = azurerm_netapp_account.anf_acc_1.name
@@ -193,7 +193,7 @@ resource "azurerm_netapp_volume" "anf_smb_vol_2" {
     prevent_destroy = false
   }
 
-  name                = "vol-smb-${var.prefix}-${var.geo}-${var.region_2}"
+  name                = "vol-smb-${var.use}-${var.prefix}-${var.geo}-${var.region_2}"
   location            = var.region_2
   resource_group_name = azurerm_resource_group.rg_2.name
   account_name        = azurerm_netapp_account.anf_acc_2.name

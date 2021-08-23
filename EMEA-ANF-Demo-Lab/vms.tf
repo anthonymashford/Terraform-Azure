@@ -329,7 +329,7 @@ resource "azurerm_linux_virtual_machine" "vm3" {
   }
 }
 
-# Install linux packages for test & demo
+# Install NFS & Samba services
 
 resource "azurerm_virtual_machine_extension" "apps3" {
   name                 = "install-linux-services"
@@ -423,7 +423,7 @@ resource "azurerm_linux_virtual_machine" "vm4" {
   }
 }
 
-# Install linux packages for test & demo
+# Install NFS & Samba services
 
 resource "azurerm_virtual_machine_extension" "apps4" {
   name                 = "install-linux-services"
