@@ -329,6 +329,22 @@ resource "azurerm_linux_virtual_machine" "vm3" {
   }
 }
 
+# Install linux packages for test & demo
+
+resource "azurerm_virtual_machine_extension" "apps3" {
+  name                 = "install-linux-services"
+  virtual_machine_id   = azurerm_linux_virtual_machine.vm3.id
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "CustomScript"
+  type_handler_version = "2.0"
+
+  settings = <<SETTINGS
+    {
+        "script": "${filebase64("./ShellScripts/install_services.sh")}"
+    }
+  SETTINGS
+}
+
 # Create random string for VM 4
 resource "random_string" "vm_rs_4" {
   length  = 5
@@ -405,4 +421,20 @@ resource "azurerm_linux_virtual_machine" "vm4" {
     CreatedWith = var.tag_createdwith
     Project     = var.tag_project
   }
+}
+
+# Install linux packages for test & demo
+
+resource "azurerm_virtual_machine_extension" "apps4" {
+  name                 = "install-linux-services"
+  virtual_machine_id   = azurerm_linux_virtual_machine.vm4.id
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "CustomScript"
+  type_handler_version = "2.0"
+
+  settings = <<SETTINGS
+    {
+        "script": "${filebase64("./ShellScripts/install_services.sh")}"
+    }
+  SETTINGS
 }
