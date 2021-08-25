@@ -10,9 +10,9 @@ prefix                 = "ACME"
 # Change this if you want to highlight your Geo
 geo                    = "emea"         
 # If you would like to use diferent regions change this
-region_1               = "uksouth"      
+region_1               = "northeurope"      
 # If you would like to use diferent regions change this
-region_2               = "ukwest"       
+region_2               = "westeurope"       
 # Environment - Change this as required
 tag_environment        = "Demo"         
 # Created By - Change this as required
