@@ -1,6 +1,6 @@
 # Create VNet 1
 resource "azurerm_virtual_network" "vnet_1" {
-  name                = "${var.use}-${var.prefix}-${var.vnet_1}-${var.region_1}"
+  name                = "vnet-${var.use}-${var.prefix}-${var.vnet_1}-${var.region_1}"
   location            = var.region_1
   resource_group_name = azurerm_resource_group.rg_1.name
   address_space       = [var.address_space_region_1]
@@ -15,7 +15,7 @@ resource "azurerm_virtual_network" "vnet_1" {
 
 # Create VNet 1 Subnet 1
 resource "azurerm_subnet" "vnet_1_snet_1" {
-  name                 = "${var.use}-${var.prefix}-${var.vnet_1}-${var.snet_1}-${var.region_1}"
+  name                 = "snet-${var.use}-${var.prefix}-${var.vnet_1}-${var.snet_1}-${var.region_1}"
   resource_group_name  = azurerm_resource_group.rg_1.name
   virtual_network_name = azurerm_virtual_network.vnet_1.name
   address_prefixes     = [var.address_vnet_1_snet_1]
@@ -23,7 +23,7 @@ resource "azurerm_subnet" "vnet_1_snet_1" {
 
 # Create VNet 1 Subnet 2
 resource "azurerm_subnet" "vnet_1_snet_2" {
-  name                 = "${var.use}-${var.prefix}-${var.vnet_1}-${var.snet_2}-${var.region_1}"
+  name                 = "snet-${var.use}-${var.prefix}-${var.vnet_1}-${var.snet_2}-${var.region_1}"
   resource_group_name  = azurerm_resource_group.rg_1.name
   virtual_network_name = azurerm_virtual_network.vnet_1.name
   address_prefixes     = [var.address_vnet_1_snet_2]
@@ -38,7 +38,7 @@ resource "azurerm_subnet" "vnet_1_snet_2" {
 
 # Create VNet 2
 resource "azurerm_virtual_network" "vnet_2" {
-  name                = "${var.use}-${var.prefix}-${var.vnet_2}-${var.region_2}"
+  name                = "vnet-${var.use}-${var.prefix}-${var.vnet_2}-${var.region_2}"
   location            = var.region_2
   resource_group_name = azurerm_resource_group.rg_2.name
   address_space       = [var.address_space_region_2]
@@ -53,7 +53,7 @@ resource "azurerm_virtual_network" "vnet_2" {
 
 # Create VNet 2 Subnet 1
 resource "azurerm_subnet" "vnet_2_snet_1" {
-  name                 = "${var.use}-${var.prefix}-${var.vnet_2}-${var.snet_1}-${var.region_2}"
+  name                 = "snet-${var.use}-${var.prefix}-${var.vnet_2}-${var.snet_1}-${var.region_2}"
   resource_group_name  = azurerm_resource_group.rg_2.name
   virtual_network_name = azurerm_virtual_network.vnet_2.name
   address_prefixes     = [var.address_vnet_2_snet_1]
@@ -61,7 +61,7 @@ resource "azurerm_subnet" "vnet_2_snet_1" {
 
 # Create VNet 2 Subnet 2
 resource "azurerm_subnet" "vnet_2_snet_2" {
-  name                 = "${var.use}-${var.prefix}-${var.vnet_2}-${var.snet_2}-${var.region_2}"
+  name                 = "snet-${var.use}-${var.prefix}-${var.vnet_2}-${var.snet_2}-${var.region_2}"
   resource_group_name  = azurerm_resource_group.rg_2.name
   virtual_network_name = azurerm_virtual_network.vnet_2.name
   address_prefixes     = [var.address_vnet_2_snet_2]
