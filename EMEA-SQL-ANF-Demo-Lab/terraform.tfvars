@@ -6,7 +6,7 @@
 # Change to meet use case, i.e Demo, Lab, Testing etc.
 use = "DEMO"
 # Change this if you'd like to your demo tailor to client name
-prefix = "ACME"
+prefix = "SQL"
 # Change this if you want to highlight your Geo
 geo = "emea"
 # If you would like to use diferent regions change this
