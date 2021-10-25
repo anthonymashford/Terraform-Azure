@@ -103,15 +103,15 @@ resource "azurerm_virtual_machine_extension" "apps1" {
 # Join Demo VM 1 to Domain
 # Please note that the domain settings are bespoke to your individual environment. Please adjust them to suit.
 resource "azurerm_virtual_machine_extension" "domjoin1" {
-  depends_on = [azurerm_virtual_machine_extension.apps1,
-                azurerm_virtual_network_peering.peer-1-to-uks,
-                azurerm_virtual_network_peering.peer-uks-to-1,
-                azurerm_virtual_network_peering.peer-1-to-ukw,
-                azurerm_virtual_network_peering.peer-ukw-to-1,
-                azurerm_virtual_network_peering.peer-1-to-neu,
-                azurerm_virtual_network_peering.peer-neu-to-1,
-                azurerm_virtual_network_peering.peer-1-to-weu,
-                azurerm_virtual_network_peering.peer-weu-to-1,
+  depends_on = [ #azurerm_virtual_machine_extension.apps1,
+    azurerm_virtual_network_peering.peer-1-to-uks,
+    azurerm_virtual_network_peering.peer-uks-to-1,
+    azurerm_virtual_network_peering.peer-1-to-ukw,
+    azurerm_virtual_network_peering.peer-ukw-to-1,
+    azurerm_virtual_network_peering.peer-1-to-neu,
+    azurerm_virtual_network_peering.peer-neu-to-1,
+    azurerm_virtual_network_peering.peer-1-to-weu,
+    azurerm_virtual_network_peering.peer-weu-to-1,
   ]
   name                 = "domjoin"
   virtual_machine_id   = azurerm_windows_virtual_machine.vm1.id
@@ -122,7 +122,7 @@ resource "azurerm_virtual_machine_extension" "domjoin1" {
         {
             "Name": "anf.test",
             "OUPath": "OU=anf-demo,DC=anf,DC=test",
-            "User": "anf.test\\join",
+            "User": "YOUR DOMAIN NAME\\USERNAME",
             "Restart": "true",
             "Options": "3"
         }
@@ -240,15 +240,15 @@ resource "azurerm_virtual_machine_extension" "apps2" {
 # Join Demo VM 2 to Domain
 # Please note that the domain settings are bespoke to your individual environment. Please adjust them to suit.
 resource "azurerm_virtual_machine_extension" "domjoin2" {
-  depends_on = [azurerm_virtual_machine_extension.apps2,
-                azurerm_virtual_network_peering.peer-2-to-uks,
-                azurerm_virtual_network_peering.peer-uks-to-2,
-                azurerm_virtual_network_peering.peer-2-to-ukw,
-                azurerm_virtual_network_peering.peer-ukw-to-2,
-                azurerm_virtual_network_peering.peer-2-to-neu,
-                azurerm_virtual_network_peering.peer-neu-to-2,
-                azurerm_virtual_network_peering.peer-2-to-weu,
-                azurerm_virtual_network_peering.peer-weu-to-2, 
+  depends_on = [ #azurerm_virtual_machine_extension.apps2,
+    azurerm_virtual_network_peering.peer-2-to-uks,
+    azurerm_virtual_network_peering.peer-uks-to-2,
+    azurerm_virtual_network_peering.peer-2-to-ukw,
+    azurerm_virtual_network_peering.peer-ukw-to-2,
+    azurerm_virtual_network_peering.peer-2-to-neu,
+    azurerm_virtual_network_peering.peer-neu-to-2,
+    azurerm_virtual_network_peering.peer-2-to-weu,
+    azurerm_virtual_network_peering.peer-weu-to-2,
   ]
   name                 = "domjoin"
   virtual_machine_id   = azurerm_windows_virtual_machine.vm2.id
@@ -259,7 +259,7 @@ resource "azurerm_virtual_machine_extension" "domjoin2" {
         {
             "Name": "anf.test",
             "OUPath": "OU=anf-demo,DC=anf,DC=test",
-            "User": "anf.test\\join",
+            "User": "YOUR DOMAIN NAME\\USERNAME",
             "Restart": "true",
             "Options": "3"
         }

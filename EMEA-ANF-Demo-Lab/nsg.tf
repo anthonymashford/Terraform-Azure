@@ -50,8 +50,8 @@ resource "azurerm_network_security_group" "nsg_1" {
 resource "azurerm_network_security_group" "nsg_2" {
   depends_on = [azurerm_windows_virtual_machine.vm1,
     azurerm_windows_virtual_machine.vm2,
-    azurerm_linux_virtual_machine.vm3,
-    azurerm_linux_virtual_machine.vm4
+    #azurerm_linux_virtual_machine.vm3,
+    #azurerm_linux_virtual_machine.vm4
   ]
   name                = "nsg-${var.vnet_2}-${var.snet_1}"
   location            = var.region_2

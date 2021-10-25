@@ -1,6 +1,7 @@
 ###########################################################################
 #                               Outputs                                   #
 ###########################################################################
+
 output "rg_1_name" {
   description = "Resource Group 1 Name"
   value       = azurerm_resource_group.rg_1.name
@@ -54,4 +55,8 @@ output "peer_2_to_1" {
 output "keyvault_name" {
   description = "Keyvault"
   value       = azurerm_key_vault.keyvault.name
+}
+
+output "netapp-volume-smb-1" {
+  value = azurerm_netapp_volume.anf_smb_vol_1
 }

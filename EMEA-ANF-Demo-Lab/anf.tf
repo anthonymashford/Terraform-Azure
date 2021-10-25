@@ -7,7 +7,7 @@ resource "azurerm_netapp_account" "anf_acc_1" {
   # Acitve Directory configuration. 
   # This section has been commented out as an ANF account already exists in the demo subscription and region(s).
   # Uncomment this section if you need to add Active Directory configuration and amend the .tfvars file to suit.
-  /*
+/*
   active_directory {
     username            = data.azurerm_key_vault_secret.join.name
     password            = data.azurerm_key_vault_secret.join.value
@@ -35,7 +35,7 @@ resource "azurerm_netapp_account" "anf_acc_2" {
   # Acitve Directory configuration. 
   # This section has been commented out as an ANF account already exists in the demo subscription region.
   # Uncomment this section if you need to add Active Directory configuration and amend the .tfvars file.
-  /*
+  /*  
   active_directory {
     username            = data.azurerm_key_vault_secret.join.name
     password            = data.azurerm_key_vault_secret.join.value
@@ -210,7 +210,7 @@ resource "azurerm_netapp_volume" "anf_smb_vol_2" {
     CreatedWith = var.tag_createdwith
     Project     = var.tag_project
   }
-
+  
   data_protection_replication {
     endpoint_type             = "dst"
     remote_volume_location    = azurerm_resource_group.rg_1.location
