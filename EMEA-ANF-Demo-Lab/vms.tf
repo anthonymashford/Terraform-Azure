@@ -103,7 +103,7 @@ resource "azurerm_virtual_machine_extension" "apps1" {
 # Join Demo VM 1 to Domain
 # Please note that the domain settings are bespoke to your individual environment. Please adjust them to suit.
 resource "azurerm_virtual_machine_extension" "domjoin1" {
-  depends_on = [ #azurerm_virtual_machine_extension.apps1,
+  depends_on = [ azurerm_virtual_machine_extension.apps1,
     azurerm_virtual_network_peering.peer-1-to-uks,
     azurerm_virtual_network_peering.peer-uks-to-1,
     azurerm_virtual_network_peering.peer-1-to-ukw,
@@ -240,7 +240,7 @@ resource "azurerm_virtual_machine_extension" "apps2" {
 # Join Demo VM 2 to Domain
 # Please note that the domain settings are bespoke to your individual environment. Please adjust them to suit.
 resource "azurerm_virtual_machine_extension" "domjoin2" {
-  depends_on = [ #azurerm_virtual_machine_extension.apps2,
+  depends_on = [ azurerm_virtual_machine_extension.apps2,
     azurerm_virtual_network_peering.peer-2-to-uks,
     azurerm_virtual_network_peering.peer-uks-to-2,
     azurerm_virtual_network_peering.peer-2-to-ukw,
