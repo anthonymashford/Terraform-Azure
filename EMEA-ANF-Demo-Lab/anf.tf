@@ -161,7 +161,7 @@ resource "azurerm_netapp_volume" "anf_nfs_vol_2" {
   }
 
 }
-
+/*
 # Create Azure NetApp Files SMB Volume 1
 resource "azurerm_netapp_volume" "anf_smb_vol_1" {
   lifecycle {
@@ -219,3 +219,4 @@ resource "azurerm_netapp_volume" "anf_smb_vol_2" {
   }
 
 }
+*/

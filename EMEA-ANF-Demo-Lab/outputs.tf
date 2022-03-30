@@ -56,7 +56,8 @@ output "keyvault_name" {
   description = "Keyvault"
   value       = azurerm_key_vault.keyvault.name
 }
-
+/*
 output "netapp-volume-smb-1" {
   value = azurerm_netapp_volume.anf_smb_vol_1
 }
+*/
